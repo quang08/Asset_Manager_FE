@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div>
-      <h1>Asset Manager App</h1>
+      <h1 className="font-bold">Asset Manager App</h1>
       {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
     </div>
   );

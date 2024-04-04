@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import AssetList from "./components/Asset/AssetList";
 
 function App() {
-  // const [data, setData] = useState(null);
 
   return (
     <div>

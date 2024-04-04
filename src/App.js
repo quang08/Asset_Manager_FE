@@ -3,8 +3,10 @@ import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AssetList from "./components/Asset/AssetList";
 
+import  AssetList  from './components/Asset/AssetList'
+
 function App() {
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
 
   return (
     <div>

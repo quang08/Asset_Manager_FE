@@ -8,6 +8,7 @@ function SaleList() {
     axios
       .get("http://localhost:3000/sale")
       .then((response) => {
+        console.log(response.data);
         setSaleList(response.data);
       })
       .catch((error) => {
@@ -40,7 +41,7 @@ function SaleList() {
             ) : (
               saleList.map((sale) => (
                 <tr key={sale._id}>
-                  <td className="border px-4 py-2">{sale.asset.assetName}</td>
+                  <td className="border px-4 py-2">{sale.assetName}</td>
                   <td className="border px-4 py-2">
                     {new Date(sale.saleDate).toLocaleDateString()}
                   </td>

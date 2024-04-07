@@ -17,7 +17,7 @@ function SaleList() {
   }, []);
 
   return (
-    <div className="container mx-auto">
+      <div className="container mx-auto">
       <div
         className="overflow-x-auto"
         style={{ maxHeight: "400px", overflowY: "auto" }}

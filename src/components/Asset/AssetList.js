@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { saveAssetChanges } from "../../utils/saveAssetChanges";
+import CreateAsset from "./CreateAsset";
 
 function AssetList() {
   const [assetList, setAssetList] = useState([]);
@@ -11,6 +12,7 @@ function AssetList() {
   const [newCost, setNewCost] = useState(0);
   const [buyer, setBuyer] = useState("");
   const [price, setPrice] = useState(0);
+   const [showCreateAsset, setShowCreateAsset] = useState(false);
 
   useEffect(() => {
     axios
@@ -60,8 +62,25 @@ function AssetList() {
     window.location.reload();
   };
 
+   const handleCreateAsset = () => {
+     setShowCreateAsset(true);
+   };
+
+   const handleCloseCreateAsset = () => {
+     setShowCreateAsset(false);
+   };
+
   return (
     <div className="container mx-auto h-full">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-2xl font-bold">Asset List</h2>
+        <button
+          onClick={handleCreateAsset}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Create New Asset
+        </button>
+      </div>
       <div className="overflow-x-auto max-h-1/2">
         <table className="table-auto w-full">
           <thead>
@@ -167,6 +186,7 @@ function AssetList() {
           </div>
         </div>
       )}
+      {showCreateAsset && <CreateAsset onClose={handleCloseCreateAsset} />}
     </div>
   );
 }

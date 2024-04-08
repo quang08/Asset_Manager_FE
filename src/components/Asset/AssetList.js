@@ -12,7 +12,7 @@ function AssetList() {
   const [newCost, setNewCost] = useState(0);
   const [buyer, setBuyer] = useState("");
   const [price, setPrice] = useState(0);
-   const [showCreateAsset, setShowCreateAsset] = useState(false);
+  const [showCreateAsset, setShowCreateAsset] = useState(false);
 
   useEffect(() => {
     axios
@@ -62,13 +62,13 @@ function AssetList() {
     window.location.reload();
   };
 
-   const handleCreateAsset = () => {
-     setShowCreateAsset(true);
-   };
+  const handleCreateAsset = () => {
+    setShowCreateAsset(true);
+  };
 
-   const handleCloseCreateAsset = () => {
-     setShowCreateAsset(false);
-   };
+  const handleCloseCreateAsset = () => {
+    setShowCreateAsset(false);
+  };
 
   return (
     <div className="container mx-auto h-full">
@@ -141,22 +141,49 @@ function AssetList() {
                 <option value="Sold">Sold</option>
               </select>
             </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2">
-                {newStatus === "Sold" ? "Buyer" : "Description"}:
-              </label>
-              <input
-                type="text"
-                value={newStatus === "Sold" ? buyer : newDescription}
-                onChange={(e) =>
-                  newStatus === "Sold"
-                    ? setBuyer(e.target.value)
-                    : setNewDescription(e.target.value)
-                }
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-            </div>
+            {newStatus === "Maintaining" ? (
+              <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
+                  Cost:
+                </label>
+                <input
+                  type="number"
+                  value={newCost}
+                  onChange={(e) => setNewCost(parseFloat(e.target.value))}
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+            ) : (
+              <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
+                  Description:
+                </label>
+                <input
+                  type="text"
+                  value={newDescription}
+                  onChange={(e) => setNewDescription(e.target.value)}
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+            )}
             {(newStatus === "Maintaining" || newStatus === "Sold") && (
+              <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
+                  {newStatus === "Sold" ? "Buyer" : "Description"}:
+                </label>
+                <input
+                  type="text"
+                  value={newStatus === "Sold" ? buyer : newDescription}
+                  onChange={(e) =>
+                    newStatus === "Sold"
+                      ? setBuyer(e.target.value)
+                      : setNewDescription(e.target.value)
+                  }
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+            )}
+            {newStatus === "Sold" && (
               <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
                   Price:

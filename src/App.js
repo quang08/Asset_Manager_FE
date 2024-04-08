@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AssetList from "./components/Asset/AssetList";
 import MaintenanceList from "./components/Maintenance/MaintenanceList";
 import SaleList from "./components/Sale/SaleList";
@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/Signup";
 import Logout from "./components/Auth/Logout";
+import Report from "./components/Report/Report";
 
 function App() {
   return (
@@ -17,10 +18,11 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/logout" element={<Logout />} />
-            <Route path="/" element={<AssetList />}>
-              <Route path="assets" element={<AssetList />} />
+            <Route path="/">
+              <Route path="/" element={<AssetList />} />
               <Route path="sales" element={<SaleList />} />
               <Route path="maintain" element={<MaintenanceList />} />
+              <Route path="report" element={<Report />} />
             </Route>
           </Routes>
         </BrowserRouter>

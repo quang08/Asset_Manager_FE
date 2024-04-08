@@ -1,18 +1,14 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <div>
       <header className="flex justify-between items-center p-4 mb-20 shadow-lg">
-        <a className="text-xl font-bold cursor-pointer" href="/assets">
+        <a className="text-xl font-bold cursor-pointer" href="/">
           Asset Manager App
         </a>
         <nav>
           <ul className="flex space-x-4">
-            <li>
-              <a href="/assets">Assets</a>
-            </li>
             <li>
               <a href="/maintain">Maintain</a>
             </li>
@@ -20,7 +16,7 @@ const NavBar = () => {
               <a href="/sales">Sales</a>
             </li>
             <li>
-              <a>Report</a>
+              <a href="/report">Report</a>
             </li>
           </ul>
         </nav>

@@ -17,7 +17,8 @@ function SaleList() {
   }, []);
 
   return (
-      <div className="container mx-auto">
+    <div className="container mx-auto">
+      <h2 className="text-2xl font-bold mb-4">Asset Sales List</h2>
       <div
         className="overflow-x-auto"
         style={{ maxHeight: "400px", overflowY: "auto" }}

@@ -7,6 +7,7 @@ import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/Signup";
 import Logout from "./components/Auth/Logout";
 import Report from "./components/Report/Report";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
+      <Footer/>
     </div>
   );
 }

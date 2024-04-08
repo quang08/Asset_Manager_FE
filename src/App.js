@@ -14,10 +14,10 @@ function App() {
       <div className="container mx-auto px-4 py-2">
         <BrowserRouter>
           <Routes>
-          <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/logout" element={<Logout />} />
-            <Route path="/">
+            <Route path="/" element={<AssetList />}>
               <Route path="assets" element={<AssetList />} />
               <Route path="sales" element={<SaleList />} />
               <Route path="maintain" element={<MaintenanceList />} />
